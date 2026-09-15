@@ -9,7 +9,7 @@ Look it up (VirusTotal, MalwareBazaar, or any reputable hash-intel source). What
 
 Flag format: C6S{family_name_lowercase}.
 
-**Solution:**. 
+**Solution:**\
 Tried viruswatch and malwareBazaar - no match. Tried google Ai Mode and it suggested the family it belonged to: ==WannaCry==. Learned that attackers sometime manipulate sha to make identifying more difficult. Go figure.
 
 ## Know thy Enemy
@@ -22,7 +22,7 @@ Give us the MITRE ATT&CK **technique ID** that names this behavior.
 
 Flag format: C6S{t1234_001} (or C6S{t1234} if there's no sub-technique) - lowercase.
 
-**Solution:**. 
+**Solution:**\
 Went to site [https://attack.mitre.org/tactics/TA0004/](https://attack.mitre.org/tactics/TA0004/)
 
 Searched for “Windows Task Scheduler” and found attack closest to the one described. 
@@ -50,5 +50,5 @@ Three of these six belong to the same actor - not necessarily all from the same 
 
 Flag format: C6S{the_shared_indicator_dots_as_underscores}.
 
-**Solution:**. 
+**Solution:**\
 IP address is the same in all attacks.

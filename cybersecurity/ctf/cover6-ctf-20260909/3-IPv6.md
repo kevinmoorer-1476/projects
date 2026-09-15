@@ -7,8 +7,8 @@ Expand this to its full, uncompressed form. That's your flag, lowercase, colons 
 
 2001:db8::c6:0:0:6
 
-**Solution:**. 
-Expand the value based on the rules of proper IPv6 formatting.  
+**Solution:**\
+Expand the value based on the rules of proper IPv6 formatting.\
 1. Empty colons - each expands to 0000
 2. Restore leading zeros to fill each group’s 4 char slot. db8 -> 0db8, c6 -> 00c6, 0 -> 0000 and 6 -> 0006 
 
@@ -18,7 +18,7 @@ Odapeeka State runs an IPv4-only network. That's what the policy says.
 
 Here's a capture from their office segment. The policy is wrong - prove it, and tell us the address that shouldn't be there. Submit it exactly as it appears in the capture, colons replaced with underscores.
 
-**Solution:**. 
+**Solution:**\
 file: 10-nobody-turned-it-off.pcap
 
 Found ipv6 entries in log as policy as not working. Formatted flag with IPv6 address found
@@ -31,7 +31,7 @@ Who's lying in this capture? Not every Router Advertisement here comes from Odap
 
 Flag format: C6S{mac_address_with_underscores} - the rogue router's source MAC.
 
-**Solution:**. 
+**Solution:**\
 file: 22-neighborly.pcap
 
 Had to use Wireshark. The third advertisement in the log looked weird and was repeated several times. Inspected and found strange MAC address Src value.
@@ -46,5 +46,5 @@ Name that address, written exactly the way it's normally written.
 
 Flag format: colons -> underscores, so ff02::1 becomes C6S{ff02__1} (double underscore for the double colon).
 
-**Solution:**. 
+**Solution:**\
 ff02::1 is the all nodes multicast address. Formatted flag with the address and completed this challenge.

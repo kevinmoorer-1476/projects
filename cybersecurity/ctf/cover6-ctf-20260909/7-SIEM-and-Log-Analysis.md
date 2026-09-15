@@ -5,7 +5,7 @@ You've just taken the overnight shift. Here's the auth log for the last 24 hours
 
 Flag format: C6S{username}.
 
-**Solution:**. 
+**Solution:**\
 lfile: 13-auth.log
 
 ==jchen== is not listed as existing staff. We see he tried many times and finally got in from a public ip address that is different from what appears to be internal ip addresses at 10.20.30.*
@@ -16,7 +16,7 @@ Same night, wider view. The anomalous login wasn't the beginning. Work backwards
 
 Flag format: C6S{technique_name}.
 
-**Solution:**. 
+**Solution:**\
 file: 14-connections.log
 
 The log shows he was looking at a lot of different ports on the machine first (ie. DPT=22) . This is called a ==port scan==.
@@ -31,8 +31,8 @@ Which account, and which address let them in?
 
 Flag format: C6S{username_source_ip_with_underscores}.
 
-**Solution:**. 
-Filtered out the "Failed" entries in the log to narrow the list:  
+**Solution:**\
+Filtered out the "Failed" entries in the log to narrow the list:\
 `$ cat 23-vpn-auth.log | grep -v Failed`
 
 Filtered log shows svalenti was able to log in.
@@ -47,10 +47,10 @@ Which binary was abused?
 
 Flag format: C6S{binary_name_lowercase} (include the extension, dot -> underscore).
 
-**Solution:**. 
+**Solution:**\
 file: 29-endpoint-exec.log
 
 Looks like he ran certutil and added his IP address. 
 
-You can see the entry here:  
+You can see the entry here:\
 `$ cat 29-endpoint-exec.log | grep certutil`
