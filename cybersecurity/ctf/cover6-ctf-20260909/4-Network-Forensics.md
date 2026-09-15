@@ -7,15 +7,15 @@ Download the capture. Find the compromised account and how often it phones home.
 
 Flag format: C6S{account_beacons_every_Ns}.
 
-**Solution:** 
+**Solution:**. 
 Compromised account is jchen as referenced by the beacon.php script. Beacon is sent every 30 seconds as observed with the first few calls and continuing on from there in the logging.
 
 `$ tcpdump -r 11-beacon-watch.pcap | grep beacon`
 
-Log illustration:
-==12:00:30.149376== IP 67.205.138.164.56370 > 104.248.231.191.http: Flags [P.], seq 1:144, ack 1, win 8192, length 143: HTTP: GET /c2/**beacon**.php?id=jchen&**beacon**=2&ts=1716825630 HTTP/1.1
-==12:01:00.182628== [another beacon call]
-==12:01:30.169630== [another beacon call]
+Log illustration:  
+==12:00:30.149376== IP 67.205.138.164.56370 > 104.248.231.191.http: Flags [P.], seq 1:144, ack 1, win 8192, length 143: HTTP: GET /c2/**beacon**.php?id=jchen&**beacon**=2&ts=1716825630 HTTP/1.1. 
+==12:01:00.182628== [another beacon call]. 
+==12:01:30.169630== [another beacon call]. 
 
 ## What did they take
 
@@ -23,7 +23,7 @@ Same session, later. A file left the network.
 
 Recover it. The flag is inside.
 
-**Solution:** 
+**Solution:**. 
 They took the file records_memo_draft.txt. when i opened the pcap in wireshark, I was able to examine  the raw content of the file and saw the flag.
 
 ## 3. Ring Ring
@@ -34,8 +34,8 @@ Here's a capture from the Odapeeka State office segment. Something in it asked a
 
 Flag format: C6S{queried_domain_with_underscores}.
 
-**Solution:**
-Filtered the list of domains and aggregated to only unique values:
+**Solution:**. 
+Filtered the list of domains and aggregated to only unique values:  
 `$ tcpdump -r 20-ring-ring.pcap | grep -v 'domain >' | cut -d ' ' -f 8 | sort | uniq -c`
 
 One of these is not like the others - sync-relay-cdn.net
@@ -50,14 +50,14 @@ Every TLS handshake exchanges a certificate in the clear, before anything is enc
 
 Flag format: C6S{certificate_cn_with_underscores}.
 
-**Solution:** 
+**Solution:**. 
 Had to google what “cn” meant here - common name. Once I knew that, I could ask where to find that in Wireshark
 
 Found the line in the handshake where the certs are passed (“Server hello”). Looked at Transport Security Layer for that entry.
 
 Found common name under:
 
-TLS
+TLS. 
 - TLSv1.2 Record Layer
 - Handshake Protocol: Certificate
 - Certificates
@@ -75,18 +75,18 @@ DNS doesn't only carry answers back - sometimes the question itself is the paylo
 
 Flag format: C6S{lowercase_with_underscores} - submit exactly what you decode.
   
-**Solution:**
+**Solution:**. 
 file: 21-slow-leak.pcap
 
-Filtered the list of entries that have odapeekastate:
+Filtered the list of entries that have odapeekastate:  
 `$ tcpdump -r 21-slow-leak.pcap | grep odapeekastate` 
 
 Subdomains of urls in log when aggregated into a string looks like a base64 encoded value. Decoding reveals flag.
 
-Filtered only the sub-domains of the odapeekastate urls:
+Filtered only the sub-domains of the odapeekastate urls:  
 `$ tcpdump -r 21-slow-leak.pcap | grep odapeekastate | cut -d ' ' -f 8 | cut -d '.' -f 1 > subdoms.txt`
 
-Flattened the list of sub-domains into one string:
+Flattened the list of sub-domains into one string:  
 `$ tr '\n' ' ' < subdoms.txt`
 
 Entered the string into [https://www.dcode.fr/cipher-identifier](https://www.dcode.fr/cipher-identifier). It suggested that the value was ASCII

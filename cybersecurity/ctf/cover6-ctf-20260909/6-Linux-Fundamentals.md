@@ -23,21 +23,21 @@ Which file, and what's the octal?
 
 Flag format: C6S{octal} (three digits).
 
-**Solution:** 
+**Solution:**. 
 We see that 777 was given to backup.sh file. This access is way too permissive.
 
-Each section of the perm set has 3 values. We can split the perm set for backup.sh into:
--rwx | rwx | rwx
-The three groups of 3 values  divided above are: owner | group | everyone
+Each section of the perm set has 3 values. We can split the perm set for backup.sh into:  
+==-rwx | rwx | rwx.== 
+The three groups of 3 values divided above belong to: owner | group | everyone
 
-(r) read = 4
-(w) write = 2
-(e) execute = 1
+(r) read = 4. 
+(w) write = 2. 
+(e) execute = 1. 
 4 + 2 + 1 = 7
 
 Because rwx is the same in each section, the octal value would be 777 which gives read, write and execute to everyone.
 
-For more see: 
+For more see:  
 https://www.redhat.com/en/blog/linux-file-permissions-explained
   
 ## What’s Listening
@@ -60,7 +60,7 @@ It's running five. Which port shouldn't be there?
 
 Flag format: C6S{port_number}.
 
-**Solution:** 
+**Solution:**.  
 I recognized the other ports and they match the processes/apps that are running on them. sh on 4444 is odd and should not be there. It is known in the security space as the default listener port for the Metasploit Framework and is considered a strong IoC (Indicator of Compromise).
 
 ## History Lesson
@@ -91,7 +91,7 @@ Reconstruct what they were actually after - not the recon, the thing they left w
 
 Flag format: C6S{the_specific_file_lowercase_underscores} (name the specific resource, not the general category).
 
-**Solution:** 
+**Solution:**. 
 The attacker used whoami to confirm that they had enough access to then search for files that are associated with aws via the find command. He found dcole’s credentials file and copied it to his machine. Clearing history didn't really mask anything.
 
 ## Keys to the Kingdom
@@ -116,5 +116,5 @@ One key pair shows up on both boxes. If that machine is ever compromised, so is 
 
 Whose key is it? Flag format: C6S{key_comment_lowercase_underscores} (the reused key's comment, exactly as shown - the @ becomes an underscore too).
 
-**Solution:** 
+**Solution:**. 
 The sha beginning with k9k is the same on both.
