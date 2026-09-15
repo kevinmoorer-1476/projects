@@ -8,7 +8,7 @@ Flag format: C6S{username}.
 **Solution:**\
 lfile: 13-auth.log
 
-==jchen== is not listed as existing staff. We see he tried many times and finally got in from a public ip address that is different from what appears to be internal ip addresses at 10.20.30.*
+**jchen** is not listed as existing staff. We see he tried many times and finally got in from a public ip address that is different from what appears to be internal ip addresses at 10.20.30.*
   
 ## Patient Zero
 
@@ -19,7 +19,7 @@ Flag format: C6S{technique_name}.
 **Solution:**\
 file: 14-connections.log
 
-The log shows he was looking at a lot of different ports on the machine first (ie. DPT=22) . This is called a ==port scan==.
+The log shows he was looking at a lot of different ports on the machine first (ie. DPT=22) . This is called a **port scan**.
 
 ## Needle, Haystack
 

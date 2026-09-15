@@ -10,12 +10,13 @@ Flag format: C6S{account_beacons_every_Ns}.
 **Solution:**\
 Compromised account is jchen as referenced by the beacon.php script. Beacon is sent every 30 seconds as observed with the first few calls and continuing on from there in the logging.
 
+Filtered on "beacon"\
 `$ tcpdump -r 11-beacon-watch.pcap | grep beacon`
 
 Log illustration:\
-==12:00:30.149376== IP 67.205.138.164.56370 > 104.248.231.191.http: Flags [P.], seq 1:144, ack 1, win 8192, length 143: HTTP: GET /c2/**beacon**.php?id=jchen&**beacon**=2&ts=1716825630 HTTP/1.1. \
-==12:01:00.182628== [another beacon call]\
-==12:01:30.169630== [another beacon call]
+**12:00:30.149376** IP 67.205.138.164.56370 > 104.248.231.191.http: Flags [P.], seq 1:144, ack 1, win 8192, length 143: HTTP: GET /c2/**beacon**.php?id=jchen&**beacon**=2&ts=1716825630 HTTP/1.1. \
+**12:01:00.182628** [another beacon call]\
+**12:01:30.169630** [another beacon call]
 
 ## What did they take
 
@@ -57,7 +58,7 @@ Found the line in the handshake where the certs are passed (“Server hello”).
 
 Found common name under:
 
-TLS\
+TLS
 - TLSv1.2 Record Layer
 - Handshake Protocol: Certificate
 - Certificates

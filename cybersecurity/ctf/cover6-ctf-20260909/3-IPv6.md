@@ -8,7 +8,7 @@ Expand this to its full, uncompressed form. That's your flag, lowercase, colons 
 2001:db8::c6:0:0:6
 
 **Solution:**\
-Expand the value based on the rules of proper IPv6 formatting.\
+Expand the value based on the rules of proper IPv6 formatting.
 1. Empty colons - each expands to 0000
 2. Restore leading zeros to fill each group’s 4 char slot. db8 -> 0db8, c6 -> 00c6, 0 -> 0000 and 6 -> 0006 
 
