@@ -9,6 +9,7 @@ Before you touch a tool, look at what the page is already telling you.
 
 **Solution:**
 `$ curl https://target.cover6solutions.com`
+
 Found flag in head element of html
 
 ## Ask Politely
@@ -17,6 +18,7 @@ Most sites keep a file telling search engines where _not_ to look. It's a sugg
 
 **Solution:** 
 `$ curl https://target.cover6solutions.com/robots.txt`
+
 Found flag at the bottom of the text in the file
 
 ## Read the Envelope
@@ -24,7 +26,8 @@ Found flag at the bottom of the text in the file
 A page is more than what you can see. Every response carries headers - the envelope it arrived in. Somebody at Odapeeka State left something in theirs.
 
 **Solution:**
-`$ curl -I [https://admin:odapeeka@target.cover6solutions.com](https://admin:odapeeka@target.cover6solutions.com)`
+`$ curl -I [https://admin:odapeeka@target.cover6solutions.com]`
+
 Found flag in x-secret-token header
 
 ## Nobody Cleans Up
@@ -33,6 +36,7 @@ Robots.txt told you where they didn't want you looking. Go look.
 
 **Solution:**
 `$ curl -L https://target.cover6solutions.com/admin-backup/`
+
 Reveals public directory listing. Clicked on file readme.txt. Flag found inside at bottom of file.
 
 ## The Front Desk
