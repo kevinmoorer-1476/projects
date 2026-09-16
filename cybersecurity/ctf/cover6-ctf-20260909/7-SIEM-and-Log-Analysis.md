@@ -8,7 +8,7 @@ Flag format: C6S{username}.
 **Solution:**\
 lfile: 13-auth.log
 
-**jchen** is not listed as existing staff. We see he tried many times and finally got in from a public ip address that is different from what appears to be internal ip addresses at 10.20.30.*
+There is only one user on the list that is not part of the existing staff or at least does not fit the login pattern of the other users. We see he tried many times and finally got in from a public ip address that is different from what appears to be internal ip addresses at 10.20.30.*
   
 ## Patient Zero
 
@@ -35,7 +35,7 @@ Flag format: C6S{username_source_ip_with_underscores}.
 Filtered out the "Failed" entries in the log to narrow the list:\
 `$ cat 23-vpn-auth.log | grep -v Failed`
 
-Filtered log shows svalenti was able to log in.
+Filtered log shows the user that had success logging in. The username is the flag.
 
 ## Living off the land
 
@@ -50,7 +50,7 @@ Flag format: C6S{binary_name_lowercase} (include the extension, dot -> undersc
 **Solution:**\
 file: 29-endpoint-exec.log
 
-Looks like he ran certutil and added his IP address. 
-
-You can see the entry here:\
+You can see the entry here where something was executed "back-to-back":\
 `$ cat 29-endpoint-exec.log | grep certutil`
+
+The name of the binary that was "abused" is the flag.

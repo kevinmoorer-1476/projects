@@ -10,7 +10,7 @@ Look it up (VirusTotal, MalwareBazaar, or any reputable hash-intel source). What
 Flag format: C6S{family_name_lowercase}.
 
 **Solution:**\
-Tried viruswatch and malwareBazaar - no match. Tried google Ai Mode and it suggested the family it belonged to: ==WannaCry==. Learned that attackers sometime manipulate sha to make identifying more difficult. Go figure.
+Tried viruswatch and malwareBazaar - no match. Tried google Ai Mode and it suggested the family it belonged to. Learned that attackers sometime manipulate sha to make identifying more difficult. Go figure.
 
 ## Know thy Enemy
 

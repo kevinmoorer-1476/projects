@@ -8,6 +8,7 @@ Target: http://target.cover6solutions.com
 Before you touch a tool, look at what the page is already telling you.
 
 **Solution:**\
+Title of challenge is a clue. Let's view the source of the homepage:\
 `$ curl https://target.cover6solutions.com`
 
 Found flag in head element of html
@@ -17,16 +18,18 @@ Found flag in head element of html
 Most sites keep a file telling search engines where _not_ to look. It's a suggestion, not a lock - and it's a map of everything they'd rather you didn't find.
 
 **Solution:**\
+Search engines use the robots.txt file located at the root of a site to determine what can be indexed. I looked at the contents of that file:\ 
 `$ curl https://target.cover6solutions.com/robots.txt`
 
-Found flag at the bottom of the text in the file
+Found flag at the bottom of the text in the file.
 
 ## Read the Envelope
 
 A page is more than what you can see. Every response carries headers - the envelope it arrived in. Somebody at Odapeeka State left something in theirs.
 
 **Solution:**\
-`$ curl -I [https://admin:odapeeka@target.cover6solutions.com]`
+We need to inspect the headers of the page(s). I started with the homepage:\
+`$ curl -I [https://target.cover6solutions.com]`
 
 Found flag in x-secret-token header
 
@@ -35,6 +38,7 @@ Found flag in x-secret-token header
 Robots.txt told you where they didn't want you looking. Go look.
 
 **Solution:**\
+One of the paths blocked for crawlers is /admin-backup. I looked into that:\
 `$ curl -L https://target.cover6solutions.com/admin-backup/`
 
 Reveals public directory listing. Clicked on file readme.txt. Flag found inside at bottom of file.
@@ -44,7 +48,7 @@ Reveals public directory listing. Clicked on file readme.txt. Flag found inside 
 There's a staff portal. It's password protected, which would matter more if anyone had changed the password.
 
 **Solution:**\
-readme.txt file from “Nobody Cleans Up” told us the password. The link to the staff portal is on the home page. Going to it in browser triggers password challenge. At first, I tried all of the listed employee names, ie. mreyes, panand with the password. When all failed, I tried the user that many use as default - “admin.” That worked! Flag is revealed on this page.
+readme.txt file from “Nobody Cleans Up” told us the password. The link to the staff portal is on the home page. Going to it in browser triggers password challenge. At first, I tried all of the listed employee names, ie. mreyes, panand with the password. When all failed, I tried the user that many use as default - “admin.” That worked. Flag is revealed on this page.
 
 ## Cookie Jar
 
@@ -63,7 +67,7 @@ $ echo -n admin | base64
 The records portal shows you your own file. It decides which file that is by asking you. Target: https://target.cover6solutions.com/records/ IDOR. Iterate ?id= to find the flagged record.
 
 **Solution:**\
-Incremented id in url until page revealed flag. 
+The title of challenge invites us to tamper with the url parameter. Incremented id in url until page revealed flag. 
 
 ## Handle Hunt
 

@@ -25,7 +25,7 @@ Same session, later. A file left the network.
 Recover it. The flag is inside.
 
 **Solution:**\
-They took the file records_memo_draft.txt. when i opened the pcap in wireshark, I was able to examine  the raw content of the file and saw the flag.
+They took the file records_memo_draft.txt. when I opened the pcap in Wireshark, I was able to examine the raw content of the file and saw the flag.
 
 ## 3. Ring Ring
 
@@ -64,7 +64,7 @@ TLS
 - Certificates
 - signedCertificate
 - issuer
-- all values here have ==id-at-commonName=portal-relay-cdn.ru==
+- all values here have ==id-at-commonName=[FLAG]==
 
 ## 1. Slow Leak
 

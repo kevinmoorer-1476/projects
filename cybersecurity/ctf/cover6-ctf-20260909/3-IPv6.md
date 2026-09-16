@@ -21,7 +21,7 @@ Here's a capture from their office segment. The policy is wrong - prove it, and 
 **Solution:**\
 file: 10-nobody-turned-it-off.pcap
 
-Found ipv6 entries in log as policy as not working. Formatted flag with IPv6 address found
+Found ipv6 entries in log as policy was not working. Formatted flag with IPv6 address found.
 
 ## Neighborly
 

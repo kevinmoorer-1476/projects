@@ -35,7 +35,7 @@ The three groups of 3 values divided above belong to: owner | group | everyone
 (e) execute = 1\
 4 + 2 + 1 = 7
 
-Because rwx is the same in each section, the octal value would be 777 which gives read, write and execute to everyone.
+Because rwx is the same in each section, the octal value on backup.sh would give read, write and execute to everyone.
 
 For more see:\
 https://www.redhat.com/en/blog/linux-file-permissions-explained
@@ -117,4 +117,4 @@ One key pair shows up on both boxes. If that machine is ever compromised, so is 
 Whose key is it? Flag format: C6S{key_comment_lowercase_underscores} (the reused key's comment, exactly as shown - the @ becomes an underscore too).
 
 **Solution:**\
-The sha beginning with k9k is the same on both.
+The sha that is found on both boxes does belong to a single user. The username@label is the flag.

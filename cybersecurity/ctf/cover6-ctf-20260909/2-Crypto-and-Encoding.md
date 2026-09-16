@@ -29,7 +29,7 @@ but on the second pass it was gibberish. Had to find another decoder. 
 
 Found [https://www.dcode.fr/cipher-identifier](https://www.dcode.fr/cipher-identifier) and tried base32 as it was their top suggestion. Used their online tool at https://www.dcode.fr/base-32-encoding and got: QzZTe2xheWVyc19hcmVfbm90X2VuY3J5cHRpb259
 
-I could have also used:\
+Apparently, I could have also used:\
 `python3 -c "import base64; print(base64.b32decode('KF5FUVDFGJ4GQZKXKZ4WGMJZNBRW2VTGMJWTSMCYGJLHKWJTJI2WGSCSOBRDENJZ').decode('utf-8'))"`
 
 Tried base32 as third pass and got trash. Tried base64 again and got the flag.
