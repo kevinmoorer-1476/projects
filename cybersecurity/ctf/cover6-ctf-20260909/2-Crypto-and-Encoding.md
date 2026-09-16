@@ -22,7 +22,7 @@ file: 08-base-camp.txt
 Value has == at end which suggested base64 encoding. Was told this was encoded 3 times.
 
 Tried base64 and after the first pass it looked ok:\
-`$ echo S0Y1RlVWREZHSjRHUVpLWEtaNFdHTUpaTkJSVzJWVEdNSldUU01DWUdKTEhLV0pUSkkyV0dTQ1NPQlJERU5KWg== | base64 -d.\
+`$ echo S0Y1RlVWREZHSjRHUVpLWEtaNFdHTUpaTkJSVzJWVEdNSldUU01DWUdKTEhLV0pUSkkyV0dTQ1NPQlJERU5KWg== | base64 -d.` \
 `$ KF5FUVDFGJ4GQZKXKZ4WGMJZNBRW2VTGMJWTSMCYGJLHKWJTJI2WGSCSOBRDENJZ`
 
 but on the second pass it was gibberish. Had to find another decoder. 
