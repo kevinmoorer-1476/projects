@@ -18,7 +18,7 @@ Found flag in head element of html
 Most sites keep a file telling search engines where _not_ to look. It's a suggestion, not a lock - and it's a map of everything they'd rather you didn't find.
 
 **Solution:**\
-Search engines use the robots.txt file located at the root of a site to determine what can be indexed. I looked at the contents of that file:\ 
+Search engines use the robots.txt file located at the root of a site to determine what can be indexed. I looked at the contents of that file:\. 
 `$ curl https://target.cover6solutions.com/robots.txt`
 
 Found flag at the bottom of the text in the file.
@@ -29,7 +29,7 @@ A page is more than what you can see. Every response carries headers - the envel
 
 **Solution:**\
 We need to inspect the headers of the page(s). I started with the homepage:\
-`$ curl -I [https://target.cover6solutions.com]`
+`$ curl -I https://target.cover6solutions.com`
 
 Found flag in x-secret-token header
 
